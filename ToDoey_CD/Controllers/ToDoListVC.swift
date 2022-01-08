@@ -7,6 +7,7 @@
 
 import UIKit
 import Lottie
+import CoreData
 class ToDoListVC: UITableViewController {
     
     // let defaults = UserDefaults.standard
@@ -14,17 +15,15 @@ class ToDoListVC: UITableViewController {
     
     @IBOutlet var addItems: UIBarButtonItem!
     var itemArray = [Item]()
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+    
+    let contex = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(dataFilePath!)
+        print("Path Where Data Model Container....", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
 
         animationView!.contentMode = .scaleAspectFit
         animationView!.loopMode = .playOnce
         animationView!.animationSpeed = 0.8
-        
-    
         animationView.center.x = self.view.center.x
         animationView.center.y = self.view.center.y
         view.addSubview(animationView!)
@@ -35,10 +34,11 @@ class ToDoListVC: UITableViewController {
         //Created Local Variable so that we can access it in Alert Action
         var textField = UITextField()
         
-        let action = UIAlertAction(title: "Add", style: .default) { (action) in
-            let newitem = Item()
-            newitem.tittle = textField.text!
-            
+       let action = UIAlertAction(title: "Add", style: .default) { (action) in
+       
+           let newitem = Item(context: self.contex)
+            newitem.title = textField.text!
+           newitem.done = false
             self.itemArray.append(newitem)
             self.tableView.reloadData()
             //Save Items To P.list
@@ -75,27 +75,25 @@ class ToDoListVC: UITableViewController {
         present(alert, animated: true, completion: nil)
         
     }
+    //MARK: -Encoding and decoding Items From p.List
     func saveItems(){
-        let encoder = PropertyListEncoder()
+       
         do{
-            let data = try! encoder.encode(itemArray)
-            try data.write(to: dataFilePath!)
+            try contex.save()
         }catch{
-            print("Error encoding Item Array,\(error)")
+            print("Error Saving Contex\(error)")
         }
         self.tableView.reloadData()
     }
+
     func loadItems(){
-        if let data = try? Data(contentsOf: dataFilePath!){
-            let decoder = PropertyListDecoder()
-            do{
-                itemArray = try decoder.decode([Item].self,from: data)
-            }catch{
-                print("Error ENcoding Items")
-            }
-           
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        do{
+           itemArray =  try contex.fetch(request)
         }
-        
+        catch{
+            print("Error Fetching Items From DataModel",error)
+        }
     }
     //MARK: -Table View Data Source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -106,7 +104,7 @@ class ToDoListVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         var content = cell.defaultContentConfiguration()
         let item = itemArray[indexPath.row]
-        content.text = item.tittle
+        content.text = item.title
         cell.contentConfiguration = content
         cell.accessoryType = item.done ? .checkmark: .none
         //        if item.done == true{

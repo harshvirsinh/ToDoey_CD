@@ -15,7 +15,10 @@
 		C8644D4A2786BB910015B6A7 /* ToDoListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8644D492786BB910015B6A7 /* ToDoListVC.swift */; };
 		C8644D4D2787065E0015B6A7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C8644D4C2787065E0015B6A7 /* Lottie */; };
 		C8644D4F278706CC0015B6A7 /* Thumbanimate.json in Resources */ = {isa = PBXBuildFile; fileRef = C8644D4E278706CC0015B6A7 /* Thumbanimate.json */; };
-		C8D98E7A278844620073A6F4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D98E79278844620073A6F4 /* Item.swift */; };
+		C8D5B0C027899C5E00CA7D2B /* ToDoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8D5B0BE27899C5E00CA7D2B /* ToDoDataModel.xcdatamodeld */; };
+		C8D5B0C32789A33700CA7D2B /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D5B0C12789A33700CA7D2B /* Item+CoreDataClass.swift */; };
+		C8D5B0C42789A33700CA7D2B /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D5B0C22789A33700CA7D2B /* Item+CoreDataProperties.swift */; };
+		C8D5B0C62789A5C800CA7D2B /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D5B0C52789A5C800CA7D2B /* PersistentStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +31,10 @@
 		C8644D432786BAA50015B6A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8644D492786BB910015B6A7 /* ToDoListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListVC.swift; sourceTree = "<group>"; };
 		C8644D4E278706CC0015B6A7 /* Thumbanimate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Thumbanimate.json; sourceTree = "<group>"; };
-		C8D98E79278844620073A6F4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C8D5B0BF27899C5E00CA7D2B /* ToDoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoDataModel.xcdatamodel; sourceTree = "<group>"; };
+		C8D5B0C12789A33700CA7D2B /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C8D5B0C22789A33700CA7D2B /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C8D5B0C52789A5C800CA7D2B /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +82,10 @@
 		C8D98E7B278844670073A6F4 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				C8D98E79278844620073A6F4 /* Item.swift */,
+				C8D5B0C52789A5C800CA7D2B /* PersistentStorage.swift */,
+				C8D5B0C12789A33700CA7D2B /* Item+CoreDataClass.swift */,
+				C8D5B0C22789A33700CA7D2B /* Item+CoreDataProperties.swift */,
+				C8D5B0BE27899C5E00CA7D2B /* ToDoDataModel.xcdatamodeld */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -201,10 +210,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8D98E7A278844620073A6F4 /* Item.swift in Sources */,
+				C8D5B0C42789A33700CA7D2B /* Item+CoreDataProperties.swift in Sources */,
+				C8D5B0C32789A33700CA7D2B /* Item+CoreDataClass.swift in Sources */,
+				C8D5B0C027899C5E00CA7D2B /* ToDoDataModel.xcdatamodeld in Sources */,
 				C8644D4A2786BB910015B6A7 /* ToDoListVC.swift in Sources */,
 				C8644D362786BAA40015B6A7 /* AppDelegate.swift in Sources */,
 				C8644D382786BAA40015B6A7 /* SceneDelegate.swift in Sources */,
+				C8D5B0C62789A5C800CA7D2B /* PersistentStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +453,19 @@
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		C8D5B0BE27899C5E00CA7D2B /* ToDoDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C8D5B0BF27899C5E00CA7D2B /* ToDoDataModel.xcdatamodel */,
+			);
+			currentVersion = C8D5B0BF27899C5E00CA7D2B /* ToDoDataModel.xcdatamodel */;
+			path = ToDoDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C8644D2A2786BAA40015B6A7 /* Project object */;
 }
