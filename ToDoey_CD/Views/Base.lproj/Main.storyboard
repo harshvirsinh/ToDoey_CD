@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -61,39 +60,6 @@
             </objects>
             <point key="canvasLocation" x="721.73913043478262" y="92.410714285714278"/>
         </scene>
-        <!--Animation Vc-->
-        <scene sceneID="REe-Vb-YQn">
-            <objects>
-                <viewController storyboardIdentifier="animationVc" id="gTb-cy-rGn" customClass="animationVc" customModule="ToDoey_CD" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5cr-Yc-JUz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hx0-rB-SvS" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="Thumbanimate"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="AIt-uY-cZA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Hx0-rB-SvS" secondAttribute="bottom" id="EHK-mA-2ay"/>
-                            <constraint firstAttribute="trailing" secondItem="Hx0-rB-SvS" secondAttribute="trailing" id="Rcy-L1-Hjb"/>
-                            <constraint firstItem="Hx0-rB-SvS" firstAttribute="leading" secondItem="5cr-Yc-JUz" secondAttribute="leading" id="hzR-MN-CQV"/>
-                            <constraint firstItem="Hx0-rB-SvS" firstAttribute="top" secondItem="5cr-Yc-JUz" secondAttribute="top" id="z1o-o0-GgP"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="animationView" destination="Hx0-rB-SvS" id="gv0-8h-cRU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dz4-GD-vnG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1574" y="92"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="lRE-fX-40j">
             <objects>
@@ -120,8 +86,5 @@
     </scenes>
     <resources>
         <image name="add" width="32" height="32"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
