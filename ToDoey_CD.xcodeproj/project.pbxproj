@@ -19,6 +19,7 @@
 		C8D5B0C32789A33700CA7D2B /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D5B0C12789A33700CA7D2B /* Item+CoreDataClass.swift */; };
 		C8D5B0C42789A33700CA7D2B /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D5B0C22789A33700CA7D2B /* Item+CoreDataProperties.swift */; };
 		C8D5B0C62789A5C800CA7D2B /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D5B0C52789A5C800CA7D2B /* PersistentStorage.swift */; };
+		C8D5B0C82789B79E00CA7D2B /* delete.json in Resources */ = {isa = PBXBuildFile; fileRef = C8D5B0C72789B79E00CA7D2B /* delete.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		C8D5B0C12789A33700CA7D2B /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C8D5B0C22789A33700CA7D2B /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C8D5B0C52789A5C800CA7D2B /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
+		C8D5B0C72789B79E00CA7D2B /* delete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = delete.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		C8D98E80278844B20073A6F4 /* Lottie Files */ = {
 			isa = PBXGroup;
 			children = (
+				C8D5B0C72789B79E00CA7D2B /* delete.json */,
 				C8644D4E278706CC0015B6A7 /* Thumbanimate.json */,
 			);
 			path = "Lottie Files";
@@ -199,6 +202,7 @@
 				C8644D422786BAA50015B6A7 /* LaunchScreen.storyboard in Resources */,
 				C8644D4F278706CC0015B6A7 /* Thumbanimate.json in Resources */,
 				C8644D3F2786BAA50015B6A7 /* Assets.xcassets in Resources */,
+				C8D5B0C82789B79E00CA7D2B /* delete.json in Resources */,
 				C8644D3D2786BAA40015B6A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

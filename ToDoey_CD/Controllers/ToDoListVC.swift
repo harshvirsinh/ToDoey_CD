@@ -20,13 +20,13 @@ class ToDoListVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Path Where Data Model Container....", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-
-        animationView!.contentMode = .scaleAspectFit
-        animationView!.loopMode = .playOnce
-        animationView!.animationSpeed = 0.8
-        animationView.center.x = self.view.center.x
-        animationView.center.y = self.view.center.y
-        view.addSubview(animationView!)
+//        animationView.animation = Animation.named("delete")
+//        animationView!.contentMode = .scaleToFill
+//        animationView!.loopMode = .playOnce
+//        animationView!.animationSpeed = 0.7
+//        animationView.center.x = self.view.center.x
+//        animationView.center.y = self.view.center.y
+//        view.addSubview(animationView!)
         loadItems()
     }
     //MARK: -Add Items
@@ -41,16 +41,15 @@ class ToDoListVC: UITableViewController {
            newitem.done = false
             self.itemArray.append(newitem)
             self.tableView.reloadData()
-            //Save Items To P.list
+           self.lottieAnimation(name: "Thumbanimate", animationSpeed: 0.8, asynceafter: 1.0)
+
             self.saveItems()
-            //save to userDefaluts.....
-            //  self.defaults.set(self.itemArray, forKey: "ToDoListArray")
             //MARK: -ThumbANimation When Item Added
-            self.animationView!.play()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.animationView.removeFromSuperview()
-            }
-            self.view.addSubview(self.animationView)
+//            self.animationView!.play()
+//           DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                self.animationView.removeFromSuperview()
+//            }
+//            self.view.addSubview(self.animationView)
         }
         let cancleAction = UIAlertAction(title: "Cancle", style: .destructive) {(cancle) in
             self.dismiss(animated: true, completion: nil)
@@ -74,6 +73,21 @@ class ToDoListVC: UITableViewController {
         
         present(alert, animated: true, completion: nil)
         
+    }
+    //MARK: -Lottie Animation
+    private func lottieAnimation(name: String,animationSpeed: Double,asynceafter: Double){
+        animationView.animation = Animation.named(name)
+        animationView!.contentMode = .scaleToFill
+        animationView!.loopMode = .playOnce
+        animationView!.animationSpeed = animationSpeed
+        animationView.center.x = self.view.center.x
+        animationView.center.y = self.view.center.y
+        
+        animationView!.play()
+        DispatchQueue.main.asyncAfter(deadline: .now() + asynceafter) {
+            self.animationView.removeFromSuperview()
+        }
+        view.addSubview(animationView!)
     }
     //MARK: -Encoding and decoding Items From p.List
     func saveItems(){
@@ -117,12 +131,10 @@ class ToDoListVC: UITableViewController {
     }
     //MARK: -Tabel View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
-        //        if itemArray[indexPath.row].done == false{
-        //            itemArray[indexPath.row].done = true
-        //        }else{
-        //            itemArray[indexPath.row].done = false
-        //        }
+      //  itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        contex.delete(itemArray[indexPath.row])
+        itemArray.remove(at: indexPath.row)
+        lottieAnimation(name: "delete", animationSpeed: 0.9, asynceafter: 2.0)
         saveItems()
         
         tableView.deselectRow(at: indexPath, animated: true)
